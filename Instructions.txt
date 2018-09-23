@@ -1,0 +1,22 @@
+Abrir el sitio:
+python manage.py runserver
+ 
+Sincronizar la BD:
+1 - python manage.py migrate
+# Para migrar lo que está contenido en una app:
+2 - python manage.py makemigration <app name>
+# Imprime el planteamiento en SQL por la migración dada:
+3 - python manage.py sqlmigrate <app name> <migration> 
+(Ver codigo de la migracion en python manage.py showmigrations o en el fichero que se creó en la app)
+
+OJO:
+cada vez que halla un cambio en la construcción de la base de datos, hacer 2 y 1
+
+Probar - insertar datos:
+Se puede hacer a partir del shell de django, con el comando:
+python manage.py shell
+Importar los modelos y creando instancias de las clases. A cada instancia, se le aplica el método save para guardar en la bd
+
+
+Para configurar el sitio de administrador:
+python manage.py createsuperuser

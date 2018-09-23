@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>MovieNow</title>
+  <!-- Charset Encoding -->
+  <meta charset="utf-8" />
+  <!-- Description of MovieNow -->
+  <meta name="description" content="Your movie theater finder" />
+  <!-- Author or Authors of MovieNow -->
+  <meta name="author" content="Me" />
+  <!-- Keywords (recognized by certain search engines -->
+  <meta name="keywords" content="movie, hollywood" />
+  <!-- Copyright information -->
+  <meta name="copyright" content="Copyright &copy; 2012 MovieNow. All
+rights reserved." />
+  <style type="text/css">
+    html,
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    aside {
+      float: right;
+      width: 200px;
+    }
+
+    nav {
+      background-color: #666;
+    }
+
+    header {
+      color: #fff;
+      height: 122px;
+      background: #1A1A1A
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      font-size: .6em;
+      line-height: 2em;
+      text-align: center;
+    }
+
+    .wrapper {
+      background-color: #fff;
+    }
+
+    .wrapper,
+    footer {
+      width: 960px;
+      margin: 0 auto;
+    }
+
+    header div {
+      width: 320px;
+      height: 122px;
+      background: url(../img/logo.png);
+      text-indent: -9999px;
+    }
+
+    html,
+    body {
+      background-color: #ccc;
+    }
+
+    .wrapper section,
+    nav {
+      padding: 5px 35px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    article h1 {
+      font-size: 1.5em;
+      margin: 10px 0 5px;
+    }
+
+    aside {
+      padding: 30px 0 10px 0;
+      margin: 0 10px;
+      background-color: #E4E4E4;
+    }
+
+    aside ol {
+      padding: 0 0 0 36px;
+      counter-reset: counter;
+    }
+
+    aside ol li:before {
+      counter-increment: counter;
+      content: counter(counter) ". ";
+      margin-right: 5px;
+      color: #333;
+      position: absolute;
+      top: 0;
+      left: -16px;
+    }
+
+    aside h2 {
+      padding: 0 20px 10px;
+      margin: 0 0 20px;
+      border-bottom: 1px dashed #fff;
+      font-size: 1.3em;
+    }
+
+    aside li p {
+      color: #999;
+    }
+
+    aside li {
+      color: #666;
+      font-size: .8em;
+      line-height: 1.2em;
+      margin: 0 0 8px 0;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body class="no-js">
+  <section class="wrapper">
+    <div class="main">
+      <header>MovieNow</header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+      <aside>
+        <h2>Top 5 Box Office</h2>
+        <ol>
+          <li itemscope itemtype="http://schema.org/Movie">
+            <h3 itemprop="name">Dark Knight Rises</h3>
+            <p itemprop="genre">Action</p>
+          </li>
+          <li itemscope itemtype="http://schema.org/Movie">
+            <h3 itemprop="name">Avengers</h3>
+            <p itemprop="genre">Action</p>
+          </li>
+          <li itemscope itemtype="http://schema.org/Movie">
+            <h3 itemprop="name">Ice Age: Continental Drift</h3>
+            <p itemprop="genre">Animation</p>
+          </li>
+          <li itemscope itemtype="http://schema.org/Movie">
+            <h3 itemprop="name">The Amazing Spider-Man</h3>
+            <p itemprop="genre">Action</p>
+          </li>
+          <li itemscope itemtype="http://schema.org/Movie">
+            <h3 itemprop="name">Dark Shadows</h3>
+            <p itemprop="genre">Comedy</p>
+          </li>
+        </ol>
+      </aside>
+      <section>
+        <article>
+          <h1>Home Title</h1>
+          <p>Home content</p>
+        </article>
+      </section>
+      <div>
+        <div class="push"></div>
+  </section>
+  <footer>Copyright &copy; 2012 MovieNow. All rights reserved.</ footer>
+</body>
+
+</html>
