@@ -1,5 +1,5 @@
 from django.contrib import admin
-from students.models import Student
+from students.models import Student, Career, ClassRoom, Secretary
 
 class StudentAdmin(admin.ModelAdmin):
     "Shows what fields to display in the admin site"
@@ -14,4 +14,7 @@ class StudentAdmin(admin.ModelAdmin):
     #fields  = ('first_name', 'last_name', 'email')
 
 admin.site.register(Student, StudentAdmin)
+admin.site.register(Career)
+admin.site.register(ClassRoom)
+admin.site.register(Secretary)
 admin.site.site_header = 'Administrator Site'
