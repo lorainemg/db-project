@@ -5,56 +5,462 @@ Formulario
 {% endblock title %}
 
 {% block nav %}
-<ul class="nav nav-tabs">
-  <li>
-    <a href="/home/">Home</a>
-  </li>
-  <li class="active">
-    <a href="/form/">Planilla</a>
-  </li>
-  <li>
-    <a href="#">Notas</a>
-  </li>
-  <li>
-    <a href="#">VB.Net</a>
-  </li>
-  <li>
-    <a href="#">Java</a>
-  </li>
-  <li>
-    <a href="#">PHP</a>
-  </li>
-</ul>
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ministerio de Educación Superior</a>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-md-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/home/">Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/form/">Planilla</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/notas/">Notas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 {% endblock nav %}
 
 {% block content %}
+<div class="text-center">
+  <h2>Ministerio de Educación Superior</h2>
+  <p class="lead">Solicitud de Ingreso a la Educación Superior</p>
+  <p class="lead">Curso por Encuentros y Educación a Distancia</p>
+</div>
 <form class="form-horizontal" role="form">
-  <legend>Horizontal Form</legend>
-  <div class="form-group">
-    <label for="firstname" class="col-sm-2 control-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+  <form class="contact-form">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">CES Y/O CUM</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">COD.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="lastname" class="col-sm-2 control-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Carné de Identidad</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Teléfono</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Nombres</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Primer Apellido</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Segundo Apellido</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Correo (opcional)</label>
+          <input type="text" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <p class="text-center" style="font-size:15pt">Dirección Particular</p>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Calle</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">No.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Apto.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Esc.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Entre</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Y</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Reparto</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Poblado</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Municipio</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Cod.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Provincia</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group bmd-form-group">
+          <label class="bmd-label-floating">Cod.</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <p class="text-center col-md-6" style="font-size:15pt">Color de Piel</p>
+      <p class="text-center col-md-6" style="font-size:15pt">Sexo</p>
+    </div>
+    <br>
+    <div class="row">
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="colorRadio" value="option1">
+          Negro
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="colorRadio" value="option1">
+          Blanco
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="colorRadio" value="option1">
+          Mestizo
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="colorSexo" value="option1">
+          Femenino
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="colorSexo" value="option1">
+          Masculino
+          <span class="circle">
+            <span class="check"></span>
+          </span>
         </label>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <br>
+    <br>
+    <p class="text-center" style="font-size:15pt">Procedencia escolar</p>
+    <br>
+    <div class="text-center row">
+      <div class="form-check col-md-4">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          IPU
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          Politécnico
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          FOC
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-1">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" value="">
+          Otro, ¿cuál?
+          <span class="form-check-sign">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control">
+      </div>
     </div>
-  </div>
+    <br>
+
+    <p class="text-center" style="font-size:15pt">Nombre de la carrera que solicita</p>
+    <br>
+    <!--<div class="row">
+      <div class="selector-available col-md-3">
+        <p id="id_students_filter" class="selector-filter"><label for="id_students_input"><span class="help-tooltip search-label-icon"
+              title="Type into this box to filter down the list of available students."></span></label> <input type="text"
+            placeholder="Filter" id="id_students_input"></p>
+        <select name="students_old" id="id_students_from" multiple="" class="filtered" data-field-name="students"
+          data-is-stacked="0">
+          <option value="2" title="Amanda Marrero">Amanda Marrero</option>
+          <option value="1" title="Loraine Monteagudo">Loraine Monteagudo</option>
+        </select>
+      </div>
+      <ul class="selector-chooser col-md-1">
+        <li><a title="Choose" href="#" id="id_students_add_link" class="selector-add active">Choose</a></li>
+        <li><a title="Remove" href="#" id="id_students_remove_link" class="selector-remove">Remove</a></li>
+      </ul>
+      <div class="selector-chosen col-md-5">
+        <select id="id_students_to" multiple="multiple" size="0" name="students" class="filtered" style="height: 270.594px;"></select><a
+          title="Click to remove all chosen students at once." href="#" id="id_students_remove_all_link" class="selector-clearall">Remove
+          all</a>
+      </div>
+    </div> !-->
+    <br>
+
+    <p class="text-center" style="font-size:15pt">Ocupación</p>
+    <br>
+    <div class="row">
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Dirigente
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Profesional
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Técnico
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Administrativo
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Trabajador de los servicios
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Obrero
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Campesino
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Ama de casa
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="ocupacionRadio" value="option1">
+          Otra situación
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-5">¿Su ocupación se vincula a la carrera solicitada?</div>
+      <div class="form-check col-md-1">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="vinculaRadio" value="option1">
+          Sí
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-1">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="vinculaRadio" value="option1">
+          No
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <br>
+
+    <p class="text-center" style="font-size:15pt">Sector Laboral</p>
+    <p class="text-center">(Tipo de propiedad)</p>
+    <br>
+    <div class="row">
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="sectorRadio" value="option1">
+          Estatal
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="sectorRadio" value="option1">
+          Privado
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="sectorRadio" value="option1">
+          Cooperativo
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+      <div class="form-check col-md-3">
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="sectorRadio" value="option1">
+          Mixto o Extranjero
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-md-4 ml-auto mr-auto text-center">
+        <button class="btn btn-primary btn-raised">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
+
 </form><br>
 {% endblock content %}
