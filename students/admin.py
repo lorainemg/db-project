@@ -1,5 +1,5 @@
 from django.contrib import admin
-from students.models import Student, Career, ClassRoom, Secretary
+from students.models import Student, Career, ClassRoom, Secretary, TitleValidation, ValidatedStudent, ExamLocation, Claim, EstudianteAprobado
 
 
 class StudentAdmin(admin.ModelAdmin):
@@ -8,19 +8,21 @@ class StudentAdmin(admin.ModelAdmin):
     # Fields to use to search
     search_fields = ('first_name', 'last_name')
     # Possible filter options
-    list_filter = ('last_name', 'ci')
+    list_filter = ('last_name', 'CI')
     # Order of the students
     ordering = ('first_name', 'last_name')
     # Fields available to change
     #fields  = ('first_name', 'last_name', 'email')
 
 
-class CareerAdmin(admin.ModelAdmin):
-    filter_horizontal = ('students', )
-
-
 admin.site.register(Student, StudentAdmin)
-admin.site.register(Career, CareerAdmin)
+admin.site.register(Career)
 admin.site.register(ClassRoom)
 admin.site.register(Secretary)
+admin.site.register(TitleValidation)
+admin.site.register(ValidatedStudent)
+admin.site.register(ExamLocation)
+admin.site.register(Claim)
+admin.site.register(EstudianteAprobado)
+
 admin.site.site_header = 'Administrator Site'
