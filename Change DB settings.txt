@@ -1,0 +1,3 @@
+ENGINE: django.db.backends.mysql
+In the database interactive prompt run CREATE DATABASE database_name
+SEE DOCUMENTATION page 981
