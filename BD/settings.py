@@ -56,7 +56,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(os.path.dirname(__file__), '../students/templates').replace('\\','/'),],
+            os.path.join(BASE_DIR, '../students/templates'), 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +77,7 @@ WSGI_APPLICATION = 'BD.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),       
@@ -85,6 +87,15 @@ DATABASES = {
         'PASSWORD': '1998',                     #Not used with sqlite3.
         'HOST': 'localhost',                         #Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',                         #Set to empty string for default. Not used with sqlite3.
+=======
+    'default': {    
+        'ENGINE': 'django.db.backends.mysql',    #Add ’postgresql_psycopg2’, ’mysql’, ’sqlite3’ or ’oracle’.
+        'NAME': 'students',                         #Or path to database file if using sqlite3.
+        'USER': 'admin',                         #Not used with sqlite3.
+        'PASSWORD': '1998',                     #Not used with sqlite3.
+        'HOST': 'localhost',                         #Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '3306',                        #Set to empty string for default. Not used with sqlite3.
+>>>>>>> mysql
     }
 }
 
@@ -128,5 +139,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(__file__), '../students/static').replace('\\','/'),
+    os.path.join(BASE_DIR, '../students/static'),
 ]
