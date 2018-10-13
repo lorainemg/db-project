@@ -61,12 +61,12 @@ class TitleValidation(models.Model):
 class ValidatedStudent(models.Model):
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE)
-    mark = models.IntegerField(default=0)
+    grade = models.IntegerField(default=0)
     secretary = models.ForeignKey(
         Secretary, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.student) + " " + str(self.mark)
+        return str(self.student) + " " + str(self.grade)
 
 
 class ExamLocation(models.Model):
@@ -82,10 +82,10 @@ class ExamLocation(models.Model):
 class Claim(models.Model):  #Reclamaciones
     student = models.ForeignKey(
         Student, on_delete="CASCADE")
-    newMark = models.IntegerField(default=0)
+    new_grade = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.student) + " " + str(self.newMark)
+        return str(self.student) + " " + str(self.new_grade)
 
 
 class EstudianteAprobado(models.Model):  # pasar el nombre a ingles
