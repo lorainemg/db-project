@@ -4,6 +4,16 @@
 Formulario
 {% endblock title %}
 
+{% block css_header %}
+{% load static %}
+<link href="{% static 'css/select.css' %}" rel="stylesheet">
+{% endblock css_header %}
+
+{% block js_footer %}
+<script src="{% static 'js/select/selectBox.js' %}"></script>
+<script src="{% static 'js/select/select.js' %}"></script>
+{% endblock js_footer %}
+
 {% block nav %}
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" role="navigation">
   <div class="container">
@@ -274,29 +284,50 @@ Formulario
     </div>
     <br>
 
-    <p class="text-center" style="font-size:15pt">Nombre de la carrera que solicita</p>
+    <p class="text-center" style="font-size:15pt">Nombre de las carreras que solicita</p>
     <br>
-    <!--<div class="row">
-      <div class="selector-available col-md-3">
-        <p id="id_students_filter" class="selector-filter"><label for="id_students_input"><span class="help-tooltip search-label-icon"
-              title="Type into this box to filter down the list of available students."></span></label> <input type="text"
-            placeholder="Filter" id="id_students_input"></p>
-        <select name="students_old" id="id_students_from" multiple="" class="filtered" data-field-name="students"
-          data-is-stacked="0">
-          <option value="2" title="Amanda Marrero">Amanda Marrero</option>
-          <option value="1" title="Loraine Monteagudo">Loraine Monteagudo</option>
-        </select>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="form-group bmd-form-group">
+          <div class="related-widget-wrapper">
+            <div class="selector">
+              <div class="selector-available">
+                <h4>Carreras Disponibles
+                  <span class="help help-tooltip help-icon" title="Esta es una lista de las carreras disponibles. Puedes elegirlas seleccionándolas y presionando la flecha &quot;Elegir&quot; entre las dos cajas."></span>
+                </h4>
+                <p id="id_careers_filter" class="selector-filter">
+                  <label for="id_careers_input">
+                    <span class="help-tooltip search-label-icon" title="Escriba aquí para filtrar la lista de permisos disponibles."></span>
+                  </label>
+                  <input type="text" class='form-control' placeholder="Filtrar" id="id_careers_input">
+                </p>
+                <select name="careers_old" id="id_careers_from" multiple="" class="form-control filtered"
+                  data-field-name="careers" data-is-stacked="0">
+                  <option value="1" title="Matemática">Matemática</option>
+                  <option value="2" title="Ciencia de la Computación">Ciencia de la Computación</option>
+                  <option value="3" title="Derecho">Derecho</option>
+                  <option value="4" title="Biología">Biología</option>
+                </select>
+              </div>
+              <ul class="selector-chooser">
+                <li><a title="Elegir" href="#" id="id_careers_add_link" class="selector-add">Elegir</a></li>
+                <li><a title="Eliminar" href="#" id="id_careers_remove_link" class="selector-remove">Eliminar</a></li>
+              </ul>
+              <div class="selector-chosen">
+                <h4>Carreras Elegidas <span class="help help-tooltip help-icon" title="This is the list of chosen careers. You may remove some by selecting them in the box below and then clicking the &quot;Remove&quot; arrow between the two boxes."></span></h4>
+                <br>
+                <hr>
+                <select id="id_careers_to" multiple="multiple" name="careers" data-field-name="careers" class="form-control filtered"
+                  data-is-stacked="0">
+                </select><a title="Presione para eliminar todas las carreras a la vez" href="#" id="id_careers_remove_all_link"
+                  class="selector-clearall active">Eliminar todas</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="selector-chooser col-md-1">
-        <li><a title="Choose" href="#" id="id_students_add_link" class="selector-add active">Choose</a></li>
-        <li><a title="Remove" href="#" id="id_students_remove_link" class="selector-remove">Remove</a></li>
-      </ul>
-      <div class="selector-chosen col-md-5">
-        <select id="id_students_to" multiple="multiple" size="0" name="students" class="filtered" style="height: 270.594px;"></select><a
-          title="Click to remove all chosen students at once." href="#" id="id_students_remove_all_link" class="selector-clearall">Remove
-          all</a>
-      </div>
-    </div> !-->
+    </div>
     <br>
 
     <p class="text-center" style="font-size:15pt">Ocupación</p>

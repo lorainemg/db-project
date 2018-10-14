@@ -8,6 +8,10 @@
   {% load static %}
   <link href="{% static 'css/material-kit.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+  <script src="{% static 'js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src=" {% static 'js/material-kit.min.js' %}"></script>
+  <script src=" {% static 'js/core/bootstrap-material-design.min.js' %}"></script>
   {% block css_header %}{% endblock css_header %}
   {% block js_header %}{% endblock js_header %}
 </head>
@@ -50,10 +54,6 @@
       {% endblock footer %}
     </div>
   </div>
-  <script src="{% static 'js/core/jquery.min.js' %}"></script>
-  <script src="{% static 'js/core/popper.min.js' %}"></script>
-  <script src=" {% static 'js/core/bootstrap-material-design.min.js' %}"></script>
-  <script src=" {% static 'js/material-kit.min.js' %}"></script>
   {% block js_footer %}{% endblock js_footer %}
 </body>
 
