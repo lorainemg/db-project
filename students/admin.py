@@ -1,5 +1,5 @@
 from django.contrib import admin
-from students.models import Student, Career, ClassRoom, Secretary, TitleValidation, ValidatedStudent, ExamLocation, Claim, EstudianteAprobado
+from students.models import Student, Career, ClassRoom, Secretary, TitleValidation, ValidatedStudent, ExamLocation, Claim, ApprovedStudent
 
 
 class StudentAdmin(admin.ModelAdmin):
@@ -23,6 +23,6 @@ admin.site.register(TitleValidation)
 admin.site.register(ValidatedStudent)
 admin.site.register(ExamLocation)
 admin.site.register(Claim)
-admin.site.register(EstudianteAprobado)
+admin.site.register(ApprovedStudent)
 
-admin.site.site_header = 'Administrator Site'
+admin.site.site_header = 'Sitio de Administración'

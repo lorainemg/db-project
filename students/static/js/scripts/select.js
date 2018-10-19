@@ -2,10 +2,15 @@ var refresh_icons = function (field_id) {
     var from = $('#' + field_id + '_from');
     var to = $('#' + field_id + '_to');
     // Active if at least one item is selected
-    $('#' + field_id + '_add_link').toggleClass('active', any_selected(from));
+    var cache = SelectBox.cache[field_id + '_to'];
+    // Don't active if there is already 5 items in the other box
+    if(cache.length < 5) {
+        $('#' + field_id + '_add_link').toggleClass('active', any_selected(from));
+    } else {
+        $('#' + field_id + '_add_link').removeClass('active', any_selected(from));
+    }
     $('#' + field_id + '_remove_link').toggleClass('active', any_selected(to));
     // Active if the corresponding box isn't empty
-    $('#' + field_id + '_add_all_link').toggleClass('active', from.find('option').length > 0);
     $('#' + field_id + '_remove_all_link').toggleClass('active', to.find('option').length > 0);
 };
 
@@ -66,7 +71,8 @@ var any_selected = function (field) {
 
 $(document).ready(function () {
     var field_id = 'id_careers';
-
+    
+    
     var move_selection = function (e, elem, move_func, from, to) {
         if (elem.className.indexOf('active') !== -1) {
             move_func(from, to);
