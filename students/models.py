@@ -112,7 +112,7 @@ class ExamLocation(models.Model):
 
     class Meta:
         verbose_name = _("Lugar del Examen")
-        verbose_name_plural = _("Lugares de los Examenes")
+        verbose_name_plural = _("Lugares del Examen")
 
 
 class Claim(models.Model):  #Reclamaciones
@@ -140,3 +140,27 @@ class ApprovedStudent(models.Model):  # pasar el nombre a ingles
     class Meta:
         verbose_name = _("Estudiante Aprobado")
         verbose_name_plural = _("Estudiantes Aprobados")
+
+
+class Inscription(models.Model):
+    date_start = models.DateField('fecha de inicio')
+    date_end = models.DateField('fecha de final')
+    
+    def __str__(self):
+        return 'Inicio de inscripción: ' + str(self.date_start) + ', final: ' + str(self.date_end)
+
+    class Meta:
+        verbose_name = _("Inscripción")
+        verbose_name_plural = _("Inscripciones")
+
+
+class Registration(models.Model):
+    date_start = models.DateField('fecha inicio')
+    date_end = models.DateField('fecha final')
+    
+    def __str__(self):
+        return 'Matrícula inicio: ' + str(self.date_start)  + ', final ' + str(self.date_end)
+
+    class Meta:
+        verbose_name = _("Matrícula")
+        verbose_name_plural = _("Matrículas")

@@ -1,5 +1,6 @@
 function valida_envia() {
 	var error = false;
+	alert('this is a test');
 	if (document.fvalida.ci.value.length == 0) {
 		alert('Tiene que escribir su Carnet de Identidad');
 		document.fvalida.ci.focus();
