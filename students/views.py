@@ -4,11 +4,14 @@ from django import forms
 
 
 def form(request):
-    return render(request, 'form.html', {'careers': Career.objects.all()})
+    return render(request, 'Main/form.html', {'careers': Career.objects.all()})
 
 def find(request): 
      return render(request, 'find.html') 
  
+def turns(request):
+	return render(request, 'Main/turns.html')
+
 def buscar(request): 
 	if request.method == 'POST': 
 		#return HttpResponse('post')

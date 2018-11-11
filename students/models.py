@@ -164,3 +164,25 @@ class Registration(models.Model):
     class Meta:
         verbose_name = _("Matrícula")
         verbose_name_plural = _("Matrículas")
+
+class Turn(models.Model):
+    date = models.DateField('día')
+    time = models.TimeField('time')
+
+    def __str__(self):
+        return str(self.date) + ' a las ' + str(self.time)
+
+    class Meta:
+        verbose_name = _('Turno')
+        verbose_name_plural = _('Turnos')
+
+class AssignTurn(models.Model):
+    turn = models.ForeignKey(Turn, on_delete=models.CASCADE, verbose_name='turno')
+    secretary = models.ForeignKey(Secretary, on_delete=models.CASCADE, verbose_name='secretaria')
+
+    def __str__(self):
+        return 'Secretaria: ' + str(self.secretary) + ' el ' + str(self.turn) 
+    
+    class Meta:
+        verbose_name = _('Turno Asignado')
+        verbose_name_plural = _('Turnos Asignados')

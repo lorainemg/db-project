@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}
+Select Title
+{% endblock title %}
+
+{% block css_header %}
+{% load static %}
+<link href="{% static 'css/select.css' %}" rel="stylesheet">
+{% endblock css_header %}
+
+{% comment %} Barra de navegación actualizada {% endcomment %}
+{% block nav %}
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ministerio de Educación Superior</a>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-md-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/home/">Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/form/">Planilla</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/notas/">Notas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+<div class="row">
+  <!--      Wizard container        -->
+  <form action="" method="" novalidate="novalidate">
+    <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
+    <div class="wizard-header">
+      <h3 class="wizard-title">
+        Elige un turno
+      </h3>
+      <h5>En caso de no estar dispuesto a aceptar el turno predeterminado, por favor elija un turno entre las fechas
+        disponibles.</h5>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="details">
+        <div class="col-sm-12">
+          <div class="form-group label-floating is-empty">
+            <label class="control-label">Días disponibles</label>
+            <select class="form-control">
+              <option disabled="" selected=""></option>
+              <option value="Afghanistan"> Afghanistan </option>
+              <option value="Albania"> Albania </option>
+              <option value="Algeria"> Algeria </option>
+              <option value="American Samoa"> American Samoa </option>
+              <option value="Andorra"> Andorra </option>
+              <option value="Angola"> Angola </option>
+              <option value="Anguilla"> Anguilla </option>
+              <option value="Antarctica"> Antarctica </option>
+              <option value="...">...</option>
+            </select>
+            <span class="material-input"></span></div>
+          <div class="form-group label-floating is-empty">
+            <label class="control-label">Horario disponible</label>
+            <select class="form-control">
+              <option disabled="" selected=""></option>
+              <option value="Afghanistan"> &lt; $100 </option>
+              <option value="Albania"> $100 - $499 </option>
+              <option value="Algeria"> $499 - $999 </option>
+              <option value="American Samoa"> $999+ </option>
+            </select>
+            <span class="material-input"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wizard-footer">
+      <div class="pull-right">
+        <input type="button" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next">
+        <input type="button" class="btn btn-finish btn-fill btn-danger btn-wd" name="finish" value="Finish" style="display: none;">
+      </div>
+      <div class="pull-left">
+        <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+      </div>
+  </form>
+</div>
+</div>
+{% endblock content %}

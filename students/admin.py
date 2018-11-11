@@ -1,7 +1,5 @@
 from django.contrib import admin
-from students.models import Student, Career, ClassRoom, Secretary, TitleValidation, ValidatedStudent
-from students.models import ExamLocation, Claim, ApprovedStudent, Registration, Inscription
-
+from students.models import *
 
 class StudentAdmin(admin.ModelAdmin):
     "Shows what fields to display in the admin site"
@@ -27,5 +25,7 @@ admin.site.register(Claim)
 admin.site.register(ApprovedStudent)
 admin.site.register(Inscription)
 admin.site.register(Registration)
+admin.site.register(Turn)
+admin.site.register(AssignTurn)
 
 admin.site.site_header = 'Sitio de Administración'
