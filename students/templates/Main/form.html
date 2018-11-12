@@ -50,34 +50,28 @@ Formulario
     <p class="lead">Solicitud de Ingreso a la Educación Superior</p>
     <p class="lead">Curso por Encuentros y Educación a Distancia</p>
   </div>
-  <div class="alert alert-danger fade">
-      <div class="container">
-          <div class="alert-icon">
-              <i class="material-icons"></i>
-          </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true"><i class="material-icons">×</i></span>
-          </button>
-          <b>Campos Inválidos:</b> Algo fue mal, por favor rellene los datos señalados correctamente.
-      </div>
-  </div>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="container">
+            <div class="alert-icon">
+                <i class="material-icons"></i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="material-icons">×</i></span>
+            </button>
+            <b>Campos Inválidos:</b> Algo fue mal, por favor rellene los datos correctamente:
+            {% comment %} {% for field in form.fields %}
+              {% if field.errors %}
+                {{field.name}} {{field.errors}}
+              {% endif %}
+            {% endfor %} {% endcomment %}
+        </div>
+    </div>
+    {% endif %}
   
 <form class="form-horizontal contact-form" name="fvalida" method="POST" action="/turns/">
   {% csrf_token %}
-  {% comment %} <div class="row">
-    <div class="col-md-6">
-      <div class="form-group bmd-form-group" data-original-title="This is good if you travel alone.">
-        <label class="bmd-label-floating">CES Y/O CUM</label>
-        <input type="text" class="form-control">
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group bmd-form-group">
-        <label class="bmd-label-floating">COD.</label>
-        <input type="text" class="form-control" name="cod1">
-      </div>
-    </div>
-  </div> {% endcomment %}
   <div class="row">
     <div class="col-md-6">
       <div class="form-group bmd-form-group">
@@ -513,7 +507,7 @@ Formulario
   </div>
 </form><br>
 
-
+{% comment %} 
 <div class="row">
   <div class="col-md-4">
     <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Default</button>
@@ -539,5 +533,5 @@ Formulario
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 {% endblock content %}

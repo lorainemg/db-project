@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Student(models.Model):
-    CI = models.IntegerField(default=0, primary_key=True)
+    CI = models.BigIntegerField(default=0, primary_key=True)
     first_name = models.CharField('nombre', max_length=30)
     last_name = models.CharField('apellidos', max_length=40)
     address = models.CharField('dirección', max_length=50)

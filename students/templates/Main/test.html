@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>MovieNow</title>
+  <!-- Charset Encoding -->
+  <meta charset="utf-8" />
+  <!-- Description of MovieNow -->
+  <meta name="description" content="Your movie theater finder" />
+  <!-- Author or Authors of MovieNow -->
+  <meta name="author" content="Me" />
+  <!-- Keywords (recognized by certain search engines -->
+  <meta name="keywords" content="movie, hollywood" />
+  <!-- Copyright information -->
+  <meta name="copyright" content="Copyright &copy; 2012 MovieNow. All
+rights reserved." />
+</head>
+
+<body>
+  {% for field in form %}
+    {% if field.errors %}
+      Message: {{field.name}} {{ field.errors }}  
+    {% endif %}
+  {% endfor %}
+</body>
+
+</html>

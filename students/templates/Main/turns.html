@@ -85,11 +85,11 @@ Select Title
         <div class="col-sm-12">
           <div class="form-group label-floating is-empty">
             <label class="control-label">Días disponibles</label>
-            <select class="form-control turn_dates">
+            <select class="form-control turn_dates" name="turn">
               {% for turn in turns %}
-              <option id="{{ forloop.counter }}" value="{{ forloop.counter }}" title="{{ turn.date }} {{ turn.time }}"> 
-                {{ turn.date }} a las {{ turn.time }}</option>
-              {% endfor %}
+                <option id="{{ forloop.counter }}" value="{{ forloop.counter }}" title="{{ turn.date }} {{ turn.time }}"> 
+                  {{ turn.date }} a las {{ turn.time }}</option>
+                {% endfor %}
             </select>
             <span class="material-input"></span></div>
           {% comment %} <div class="form-group label-floating is-empty">

@@ -1,6 +1,7 @@
-from django.shortcuts import render, render_to_response, HttpResponseRedirect
-from students.models import Career, Turn, AssignTurn
+from django.shortcuts import render, render_to_response, HttpResponseRedirect, HttpResponse
+from students.models import Career, Turn, AssignTurn, Student, Secretary
 from django import forms
+from students.forms import Form
 import datetime
 
 def form(request):
@@ -11,12 +12,39 @@ def form(request):
 #     return render(request, 'find.html') 
  
 def turns(request):
-	avalaible_turns = Turn.objects.exclude(pk__in=AssignTurn.objects.all()).order_by('date', 'time')
-	return render(request, 'Main/turns.html', {'turns': avalaible_turns})
+	if request.method == 'POST': 
+		data = Form(request.POST)
+		if data.is_valid():
+			save_student(data.cleaned_data, data)
+			avalaible_turns = Turn.objects.exclude(pk__in=AssignTurn.objects.all()).order_by('date', 'time')
+			return render(request, 'Main/turns.html', {'turns': avalaible_turns})
+		else:
+			return render(request, 'Main/form.html', {'careers': Career.objects.all(), 'form': data})
+
+def save_student(cl_data, data):
+	ci = int(cl_data['ci'])
+	first_name = cl_data['nombre']
+	last_name = cl_data['pApellido'] + ' ' + cl_data['sApellido']
+	address = cl_data['calle']
+	city = cl_data['prov']
+	email =  cl_data['email']
+	sex = data.sex[int(cl_data['colorSexo']) - 1][1][0]
+	tel = cl_data['tel']
+	s = Student(CI=ci, first_name=first_name, last_name=last_name, address=address, 
+			city=city, email=email, sex=sex, telephone_number=tel)
+	s.save()
+
 
 
 def save_turn(request):	
-	return HttpResponseRedirect('/home/')
+	if request.method == 'POST' and 'turn' in request.POST: 
+		turn = int(request.POST['turn']) - 1
+		av_turns = Turn.objects.exclude(pk__in=AssignTurn.objects.all()).order_by('date', 'time')
+		secretary = Secretary.objects.all()[0]
+		new_turn = AssignTurn(turn=av_turns[turn], secretary=secretary)
+		new_turn.save()
+		return HttpResponseRedirect('/home/')
+	return HttpResponseRedirect('/form/')
 
 def buscar(request): 
 	if request.method == 'POST': 
