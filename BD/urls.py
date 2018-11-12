@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home, base
-from students.views import form, turns
+from students.views import form, turns, save_turn
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('home/', home),
     path('form/', form),
     path('turns/', turns),
+    path('ok/', save_turn),
 ]

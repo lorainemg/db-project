@@ -4,10 +4,32 @@
 Select Title
 {% endblock title %}
 
-{% block css_header %}
+{% block js_header %}
 {% load static %}
-<link href="{% static 'css/select.css' %}" rel="stylesheet">
-{% endblock css_header %}
+<script>
+    $(document).ready(function () { 
+      $('select.turn_dates').bind('click', function (e) {
+          $('select.turn_dates option').removeClass('select');
+          if(e.target.tagName === 'SELECT') {
+              var id = '#' + e.target.value;
+              $(id).toggleClass('select');
+          }
+      });
+      $('select.turn_dates').bind('click', function (e) {
+          $('select.turn_dates option').removeClass('select');
+          if(e.target.tagName === 'SELECT') {
+              var id = '#' + e.target.value;
+              $(id).toggleClass('select');
+          }
+      });
+      $('#send-turn').bind('click', function(e) {
+        $('.alert.alert-success.fade').removeClass('fade');
+        // alert('Su cita ha sido correctamente enviada. Le esperamos en la fecha citada!!.');
+      })
+   })
+</script>
+{% endblock js_header %}
+
 
 {% comment %} Barra de navegación actualizada {% endcomment %}
 {% block nav %}
@@ -35,9 +57,21 @@ Select Title
 {% endblock nav %}
 
 {% block content %}
+<div class="alert alert-success fade">
+    <div class="container">
+        <div class="alert-icon">
+            <i class="material-icons"></i>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">×</i></span>
+        </button>
+        <b>Success Alert:</b> Su cita ha sido correctamente enviada. Le esperamos en la fecha citada!!.
+    </div>
+</div>
 <div class="row">
   <!--      Wizard container        -->
-  <form action="" method="" novalidate="novalidate">
+  <form name="fturns" method="POST" action="/ok/">
+      {% csrf_token %}
     <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
     <div class="wizard-header">
       <h3 class="wizard-title">
@@ -51,41 +85,60 @@ Select Title
         <div class="col-sm-12">
           <div class="form-group label-floating is-empty">
             <label class="control-label">Días disponibles</label>
-            <select class="form-control">
-              <option disabled="" selected=""></option>
-              <option value="Afghanistan"> Afghanistan </option>
-              <option value="Albania"> Albania </option>
-              <option value="Algeria"> Algeria </option>
-              <option value="American Samoa"> American Samoa </option>
-              <option value="Andorra"> Andorra </option>
-              <option value="Angola"> Angola </option>
-              <option value="Anguilla"> Anguilla </option>
-              <option value="Antarctica"> Antarctica </option>
-              <option value="...">...</option>
+            <select class="form-control turn_dates">
+              {% for turn in turns %}
+              <option id="{{ forloop.counter }}" value="{{ forloop.counter }}" title="{{ turn.date }} {{ turn.time }}"> 
+                {{ turn.date }} a las {{ turn.time }}</option>
+              {% endfor %}
             </select>
             <span class="material-input"></span></div>
-          <div class="form-group label-floating is-empty">
+          {% comment %} <div class="form-group label-floating is-empty">
             <label class="control-label">Horario disponible</label>
             <select class="form-control">
-              <option disabled="" selected=""></option>
-              <option value="Afghanistan"> &lt; $100 </option>
-              <option value="Albania"> $100 - $499 </option>
-              <option value="Algeria"> $499 - $999 </option>
-              <option value="American Samoa"> $999+ </option>
+                {% for turn in turns %}
+                <option value="{{ forloop.counter }}" title="{{ turn.time }}">{{ turn.time }}</option>
+                {% endfor %}
             </select>
-            <span class="material-input"></span></div>
+            <span class="material-input"></span></div> {% endcomment %}
         </div>
       </div>
     </div>
     <div class="wizard-footer">
       <div class="pull-right">
-        <input type="button" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next">
-        <input type="button" class="btn btn-finish btn-fill btn-danger btn-wd" name="finish" value="Finish" style="display: none;">
+        <input id="send-turn" type="submit" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next" data-toggle="modal" data-target="#modal-default">
       </div>
       <div class="pull-left">
-        <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+        {% comment %} <a href="/form/">
+          <input type="button" class="btn btn-previous btn-fill btn-default btn-wd" name="previous" value="Previous">
+        </a> {% endcomment %}
       </div>
   </form>
 </div>
-</div>
-{% endblock content %}
+  
+ 
+{% comment %} <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Default</button>
+      <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title" id="modal-title-default">Turno Guardado</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Su cita ha sido concertada satisfactoriamente.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Guardar cambios</button>
+              <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Regresar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+  {% endblock content %}
