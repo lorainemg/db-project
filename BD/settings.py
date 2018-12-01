@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'students_db',  #Or path to database file if using sqlite3.
         'USER': 'admin',  #Not used with sqlite3.
         'PASSWORD': '1998',  #Not used with sqlite3.
-        'HOST': 'localhost',  #Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',  #Set to empty string for default. Not used with sqlite3.
+        'HOST': 'localhost',  # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '3306',  # Set to empty string for default. Not used with sqlite3.
     }
 }
 

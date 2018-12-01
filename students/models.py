@@ -168,21 +168,38 @@ class Registration(models.Model):
 class Turn(models.Model):
     date = models.DateField('día')
     time = models.TimeField('time')
+    secretary = models.IntegerField(_("secretaria"))
+    assign = models.BooleanField(_("asignado"))
 
     def __str__(self):
-        return str(self.date) + ' a las ' + str(self.time)
+        return str(self.date) + ' a las ' + str(self.time) + '      Asignado: ' + str(self.assign)
 
     class Meta:
         verbose_name = _('Turno')
         verbose_name_plural = _('Turnos')
 
-class AssignTurn(models.Model):
-    turn = models.ForeignKey(Turn, on_delete=models.CASCADE, verbose_name='turno')
-    secretary = models.ForeignKey(Secretary, on_delete=models.CASCADE, verbose_name='secretaria')
+class MakeTurns(models.Model):
+    start_day = models.DateField('día de inicio')
+    end_day = models.DateField('día final')
+    secretary_amount = models.IntegerField('cantidad de secretarias')
+    start_time = models.TimeField('horario inicial')
+    end_time = models.TimeField('horario final')
 
     def __str__(self):
-        return 'Secretaria: ' + str(self.secretary) + ' el ' + str(self.turn) 
+        return 'Turno: empieza ' + str(self.start_day) + ' termina ' + str(self.end_day) 
     
+
     class Meta:
-        verbose_name = _('Turno Asignado')
-        verbose_name_plural = _('Turnos Asignados')
+        verbose_name = _('Turno Horario')
+        verbose_name_plural = _('Turnos Horarios')
+
+# class AssignTurn(models.Model):
+#     turn = models.ForeignKey(Turn, on_delete=models.CASCADE, verbose_name='turno')
+#     secretary = models.ForeignKey(Secretary, on_delete=models.CASCADE, verbose_name='secretaria')
+
+#     def __str__(self):
+#         return 'Secretaria: ' + str(self.secretary) + ' el ' + str(self.turn) 
+    
+#     class Meta:
+#         verbose_name = _('Turno Asignado')
+#         verbose_name_plural = _('Turnos Asignados')

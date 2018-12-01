@@ -77,8 +77,7 @@ Select Title
       <h3 class="wizard-title">
         Elige un turno
       </h3>
-      <h5>En caso de no estar dispuesto a aceptar el turno predeterminado, por favor elija un turno entre las fechas
-        disponibles.</h5>
+      <h5>Por favor, elija una fecha para validar sus datos</h5>
     </div>
     <div class="tab-content">
       <div class="tab-pane active" id="details">
@@ -88,18 +87,10 @@ Select Title
             <select class="form-control turn_dates" name="turn">
               {% for turn in turns %}
                 <option id="{{ forloop.counter }}" value="{{ forloop.counter }}" title="{{ turn.date }} {{ turn.time }}"> 
-                  {{ turn.date }} a las {{ turn.time }}</option>
+                  {{ turn.date }} a las {{ turn.time }} (No. {{turn.secretary}})</option>
                 {% endfor %}
             </select>
             <span class="material-input"></span></div>
-          {% comment %} <div class="form-group label-floating is-empty">
-            <label class="control-label">Horario disponible</label>
-            <select class="form-control">
-                {% for turn in turns %}
-                <option value="{{ forloop.counter }}" title="{{ turn.time }}">{{ turn.time }}</option>
-                {% endfor %}
-            </select>
-            <span class="material-input"></span></div> {% endcomment %}
         </div>
       </div>
     </div>
