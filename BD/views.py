@@ -4,5 +4,5 @@ def base(request):
     return redirect(home)
 
 def home(request):
-    return render(request, "index.html", {'open': True})
+    return render(request, "Main/index.html", {'open': True})
 

@@ -8,16 +8,19 @@ def form(request):
 	turn = Turn.objects.filter(assign=False)
 	return render(request, 'Main/form.html', {'careers': Career.objects.all(), 'turn': turn})
 
+def declaration(request):
+	return render(request, 'Main/declaration.html')
  
 def turns(request):
+	print('here')
 	if request.method == 'POST': 
 		data = Form(request.POST)
-		# if data.is_valid():
-		# 	save_student(data.cleaned_data, data)
-		avalaible_turns = Turn.objects.filter(assign=False).order_by('date', 'time', 'secretary')
-		return render(request, 'Main/turns.html', {'turns': avalaible_turns})
-		# else:
-		# 	return render(request, 'Main/form.html', {'careers': Career.objects.all(), 'form': data})
+		if data.is_valid():
+			save_student(data.cleaned_data, data)
+			avalaible_turns = Turn.objects.filter(assign=False).order_by('date', 'time', 'secretary')
+			return render(request, 'Main/turns.html', {'turns': avalaible_turns})
+		else:
+		 	return render(request, 'Main/form.html', {'careers': Career.objects.all(), 'form': data})
 
 def save_student(cl_data, data):
 	ci = int(cl_data['ci'])

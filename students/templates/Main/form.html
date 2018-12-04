@@ -10,7 +10,7 @@ Formulario
 {% endblock css_header %}
 
 {% block js_header %}
-<script src="{% static 'js/scripts/validate_function.js' %}"></script>
+<script src="{% static 'js/validate_function1.js' %}"></script>
 {% endblock js_header %}
 
 {% block js_footer %}
@@ -32,7 +32,7 @@ Formulario
           <a class="nav-link" href="/home/">Inicio</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/form/">Planilla</a>
+          <a class="nav-link" href="/declaration/">Planilla</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/notas/">Notas</a>
@@ -70,17 +70,29 @@ Formulario
     </div>
     {% endif %}
   
-<form class="form-horizontal contact-form" name="fvalida" method="POST" action="/turns/">
+    <div class="alert alert-danger fade">
+      <div class="container">
+          <div class="alert-icon">
+              <i class="material-icons"></i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">×</i></span>
+          </button>
+          <b>Campos Inválidos:</b> Algo fue mal, por favor rellene los datos correctamente.
+      </div>
+  </div>
+
+<form name="fvalida" class="form-horizontal contact-form" method="POST" action="/turns/" role="form">
   {% csrf_token %}
   <div class="row">
     <div class="col-md-6">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="ci">
         <label class="bmd-label-floating">Carné de Identidad</label>
         <input type="text" name="ci" class="form-control">
       </div>
     </div>
     <div class="col-md-6">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="tel">
         <label class="bmd-label-floating">Teléfono</label>
         <input type="text" name="tel" class="form-control">
       </div>
@@ -88,19 +100,19 @@ Formulario
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="nm">
         <label class="bmd-label-floating">Nombres</label>
         <input type="text" name="nombre" class="form-control">
       </div>
     </div>
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="pA">
         <label class="bmd-label-floating">Primer Apellido</label>
         <input type="text" name="pApellido" class="form-control">
       </div>
     </div>
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="sA">
         <label class="bmd-label-floating">Segundo Apellido</label>
         <input type="text" name="sApellido" class="form-control">
       </div>
@@ -108,7 +120,7 @@ Formulario
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="crr">
         <label class="bmd-label-floating">Correo (opcional)</label>
         <input type="text" name="email" class="form-control">
       </div>
@@ -119,25 +131,25 @@ Formulario
   <p class="text-center" style="font-size:15pt">Dirección Particular</p>
   <div class="row">
     <div class="col-md-5">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="clll">
         <label class="bmd-label-floating">Calle</label>
         <input type="text" name="calle" class="form-control">
       </div>
     </div>
     <div class="col-md-3">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="num">
         <label class="bmd-label-floating">No.</label>
         <input type="text" name="num" class="form-control">
       </div>
     </div>
     <div class="col-md-2">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="ap">
         <label class="bmd-label-floating">Apto.</label>
         <input type="text" name="apto" class="form-control">
       </div>
     </div>
     <div class="col-md-2">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="esc">
         <label class="bmd-label-floating">Esc.</label>
         <input type="text" name="esc" class="form-control">
       </div>
@@ -145,19 +157,19 @@ Formulario
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="ent">
         <label class="bmd-label-floating">Entre</label>
         <input type="text" name="entre" class="form-control">
       </div>
     </div>
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="y">
         <label class="bmd-label-floating">Y</label>
         <input type="text" name="y" class="form-control">
       </div>
     </div>
     <div class="col-md-4">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="rep">
         <label class="bmd-label-floating">Reparto</label>
         <input type="text" name="repa" class="form-control">
       </div>
@@ -165,31 +177,31 @@ Formulario
   </div>
   <div class="row">
     <div class="col-md-3">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="pbl">
         <label class="bmd-label-floating">Poblado</label>
         <input type="text" name="poblado" class="form-control">
       </div>
     </div>
     <div class="col-md-3">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="mun">
         <label class="bmd-label-floating">Municipio</label>
         <input type="text" name="mun" class="form-control">
       </div>
     </div>
     <div class="col-md-2">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="cod">
         <label class="bmd-label-floating">Cod.</label>
         <input type="text" name="cod0" class="form-control">
       </div>
     </div>
     <div class="col-md-3">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="pro">
         <label class="bmd-label-floating">Provincia</label>
         <input type="text" name="prov" class="form-control">
       </div>
     </div>
     <div class="col-md-1">
-      <div class="form-group bmd-form-group">
+      <div class="form-group bmd-form-group" id="cod1">
         <label class="bmd-label-floating">Cod.</label>
         <input type="text" name="cod" class="form-control">
       </div>
@@ -197,13 +209,13 @@ Formulario
   </div>
   <br>
 
-  <div class="row">
+  <div class="row" id="colorpiel">
     <p class="text-center col-md-6" style="font-size:15pt">Color de Piel</p>
     <p class="text-center col-md-6" style="font-size:15pt">Sexo</p>
   </div>
   <br>
   <div class="row">
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="colp1">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="colorRadio" value="1">
         Negro
@@ -212,7 +224,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="colp2">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="colorRadio" value="2">
         Blanco
@@ -221,7 +233,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="colp3">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="colorRadio" value="3">
         Mestizo
@@ -230,7 +242,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="s1">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="colorSexo" value="1">
         Femenino
@@ -239,7 +251,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="s2">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="colorSexo" value="2">
         Masculino
@@ -254,44 +266,44 @@ Formulario
   <p class="text-center" style="font-size:15pt">Procedencia escolar</p>
   <br>
   <div class="text-center row">
-    <div class="form-check col-md-4">
+    <div class="form-check col-md-4" id="p1">
       <label class="form-check-label">
-        <input class="form-check-input" name="procedencia" type="checkbox" value="1">
+        <input class="form-check-input" name="procedencia" type="radio" value="1">
         IPU
         <span class="form-check-sign">
           <span class="check"></span>
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="p2">
       <label class="form-check-label">
-        <input class="form-check-input" name="procedencia" type="checkbox" value="2">
+        <input class="form-check-input" name="procedencia" type="radio" value="2">
         Politécnico
         <span class="form-check-sign">
           <span class="check"></span>
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="p3">
       <label class="form-check-label">
-        <input class="form-check-input" name="procedencia" type="checkbox" value="3">
+        <input class="form-check-input" name="procedencia" type="radio" value="3">
         FOC
         <span class="form-check-sign">
           <span class="check"></span>
         </span>
       </label>
     </div>
-    <div class="form-check col-md-1">
+    <div class="form-check col-md-1" id="p4">
       <label class="form-check-label">
-        <input class="form-check-input" name="procedencia" type="checkbox" value="4">
+        <input class="form-check-input" name="procedencia" type="radio" value="4">
         Otro, ¿cuál?
         <span class="form-check-sign">
           <span class="check"></span>
         </span>
       </label>
     </div>
-    <div class="col-md-2">
-      <input type="text" name="OtroV" class="form-control">
+    <div class="col-md-2" id="p41">
+      <input type="text" name="otroV" class="form-control">
     </div>
   </div>
   <br>
@@ -347,7 +359,7 @@ Formulario
   <p class="text-center" style="font-size:15pt">Ocupación</p>
   <br>
   <div class="row">
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o1">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="1">
         Dirigente
@@ -356,7 +368,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o2">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="2">
         Profesional
@@ -365,7 +377,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o3">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="3">
         Técnico
@@ -374,7 +386,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o5">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="4">
         Administrativo
@@ -383,7 +395,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="o6">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="5">
         Trabajador de los servicios
@@ -394,7 +406,7 @@ Formulario
     </div>
   </div>
   <div class="row">
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o7">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="6">
         Obrero
@@ -403,7 +415,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o8">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="7">
         Campesino
@@ -412,7 +424,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o9">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="8">
         Ama de casa
@@ -421,7 +433,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-2">
+    <div class="form-check col-md-2" id="o10">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="ocupacionRadio" value="9">
         Otra situación
@@ -434,7 +446,7 @@ Formulario
   <br>
   <div class="row">
     <div class="col-md-5">¿Su ocupación se vincula a la carrera solicitada?</div>
-    <div class="form-check col-md-1">
+    <div class="form-check col-md-1" id="op1">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="vinculaRadio" value="1">
         Sí
@@ -443,7 +455,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-1">
+    <div class="form-check col-md-1" id="op2">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="vinculaRadio" value="2">
         No
@@ -459,7 +471,7 @@ Formulario
   <p class="text-center">(Tipo de propiedad)</p>
   <br>
   <div class="row">
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="tp1">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sectorRadio" value="1">
         Estatal
@@ -468,7 +480,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="tp2">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sectorRadio" value="2">
         Privado
@@ -477,7 +489,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="tp3">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sectorRadio" value="3">
         Cooperativo
@@ -486,7 +498,7 @@ Formulario
         </span>
       </label>
     </div>
-    <div class="form-check col-md-3">
+    <div class="form-check col-md-3" id="tp4">
       <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sectorRadio" value="4">
         Mixto o Extranjero
@@ -500,7 +512,7 @@ Formulario
   <br>
   <div class="row">
     <div class="col-md-4 ml-auto mr-auto text-center">
-      <button type="submit" class="btn btn-primary btn-raised" {% comment %} <onclick="valida_envia()">{% endcomment %}> 
+      <button type="submit" class="btn btn-primary btn-raised" onclick="valida_envia()">
         <a class="text-white">Enviar</a>
       </button>
     </div>

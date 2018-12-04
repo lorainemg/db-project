@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block title %}
+Formulario
+{% endblock title %}
+
+{% block css_header %}
+{% load static %}
+<link href="{% static 'css/select.css' %}" rel="stylesheet">
+{% endblock css_header %}
+
+{% block js_header %}
+<script src="{% static 'js/validate_function1.js' %}"></script>
+{% endblock js_header %}
+
+{% block js_footer %}
+<script src="{% static 'js/scripts/selectBox.js' %}"></script>
+<script src="{% static 'js/scripts/select.js' %}"></script>
+{% endblock js_footer %}
+
+{% comment %} Barra de navegación actualizada {% endcomment %}
+{% block nav %}
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ministerio de Educación Superior</a>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-md-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/home/">Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/declaration/">Planilla</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/notas/">Notas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+{% comment %} <div class="container"> {% endcomment %}
+  <div class="text-center">
+    <h2>Ministerio de Educación Superior</h2>
+    <p class="lead">Declaración Jurada</p>
+    <p class="lead">Curso por Encuentros y Educación a Distancia</p>
+  </div>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+        <div class="container">
+            <div class="alert-icon">
+                <i class="material-icons"></i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="material-icons">×</i></span>
+            </button>
+            <b>Campos Inválidos:</b> Algo fue mal, por favor rellene los datos correctamente:
+            {% comment %} {% for field in form.fields %}
+              {% if field.errors %}
+                {{field.name}} {{field.errors}}
+              {% endif %}
+            {% endfor %} {% endcomment %}
+        </div>
+    </div>
+    {% endif %}
+  
+<form name="fvalida" class="form-horizontal contact-form" method="POST" action="/form/" role="form">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-1">
+        <div class="form-group bmd-form-group" id="clll">
+            <p>Yo,</p>
+        </div>
+    </div>
+    <div class="col-md-11">
+      <div class="form-group bmd-form-group" id="ci">
+        <label class="bmd-label-floating">Nombre</label>
+        <input type="text" name="ci" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+        <div class="form-group bmd-form-group" id="clll">
+            <p>Hijo de:</p>
+        </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group bmd-form-group" id="nm">
+        <label class="bmd-label-floating">Padre</label>
+        <input type="text" name="nombre" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group bmd-form-group" id="pA">
+        <label class="bmd-label-floating">Madre</label>
+        <input type="text" name="pApellido" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+        <div class="form-group bmd-form-group" id="clll">
+            <p>Registro Civil de</p>
+        </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group bmd-form-group" id="crr">
+        <label class="bmd-label-floating">No.</label>
+        <input type="text" name="email" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group bmd-form-group" id="clll">
+            <label class="bmd-label-floating">Provincia</label>
+            <input type="text" name="calle" class="form-control">
+        </div> 
+    </div>     
+  </div>
+  <br>
+  <p class="text-center" style="font-size:15pt">DECLARO BAJO JURAMENTE CON CONOCIMIENTO DE LA SANCIÓN QUE CASTIGA EL DELITO 
+      DE PERJURIO SI FALTARA, A LA VERDAD, LO SIGUIENTE:
+  </p>
+  <br>
+    <div class="row">
+        <div class="form-check col-md-4" id="colp1">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="sancion" value="1">
+            No he sido sancionado por delito de clase alguna
+            <span class="circle">
+              <span class="check"></span>
+            </span>
+          </label>
+        </div>
+        <div class="form-check col-md-3" id="p4">
+            <label class="form-check-label">
+                <input class="form-check-input" name="sancion" type="radio" value="4">
+                He sido sancionado por el delito de
+                <span class="circle">
+                <span class="check"></span>
+                </span>
+            </label>
+        </div>
+        <div class="col-md-4" id="p41">
+            <input type="text" name="otroV" class="form-control">
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="form-check col-md-5" id="colp1">
+            <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="matr" value="1">
+                Nunca he matriculado en la Educación Superior
+            <span class="circle">
+                <span class="check"></span>
+            </span>
+            </label>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+    <div class="form-check col-md-4" id="p4">
+        <label class="form-check-label">
+            <input class="form-check-input" name="matr" type="radio" value="4">
+            Estoy matriculado en la Educación Superior:
+            <span class="circle">
+                <span class="check"></span>
+            </span>
+        </label>
+    </div>
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group" id="nm">
+          <label class="bmd-label-floating">Centro de Educación Superior</label>
+          <input type="text" name="nombre" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group bmd-form-group" id="pA">
+          <label class="bmd-label-floating">Carrera</label>
+          <input type="text" name="pApellido" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group bmd-form-group" id="pA">
+          <label class="bmd-label-floating">Año</label>
+          <input type="text" name="pApellido" class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="row">
+        <div class="form-check col-md-4" id="p4">
+            <label class="form-check-label">
+                <input class="form-check-input" name="matr" type="radio" value="4">
+                Estuve matriculado en la Educación Superior:
+                <span class="circle">
+                    <span class="check"></span>
+                </span>
+            </label>
+        </div>
+            <div class="col-md-3">
+            <div class="form-group bmd-form-group" id="nm">
+                <label class="bmd-label-floating">Centro de Educación Superior</label>
+                <input type="text" name="nombre" class="form-control">
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group bmd-form-group" id="pA">
+                <label class="bmd-label-floating">Carrera</label>
+                <input type="text" name="pApellido" class="form-control">
+            </div>
+            </div>
+        </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group bmd-form-group" id="clll">
+        <label class="bmd-label-floating">Tipo de curso</label>
+        <input type="text" name="calle" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group bmd-form-group" id="num">
+        <label class="bmd-label-floating">Año que cursaba</label>
+        <input type="text" name="num" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group bmd-form-group" id="ap">
+        <label class="bmd-label-floating">Año que causé baja.</label>
+        <input type="text" name="apto" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group bmd-form-group" id="esc">
+        <label class="bmd-label-floating">Motivos de la baja.</label>
+        <input type="text" name="esc" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group bmd-form-group" id="clll">
+        <label class="bmd-label-floating">Graduado en el año</label>
+        <input type="text" name="calle" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group bmd-form-group" id="num">
+        <label class="bmd-label-floating">País</label>
+        <input type="text" name="num" class="form-control">
+      </div>
+    </div>
+  </div>
+  <br>
+
+    <p class="text-center" style="font-size:15pt">
+        Y todos los datos aquí reflejados son copia fiel de mi carné de identidad.
+    </p>
+    <br>
+
+  <div class="row">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          <button type="submit" class="btn btn-primary btn-raised">
+            <a class="text-white">Acepto</a>
+          </button>
+        </div>
+      </div>
+</form><br>
+<p>
+    Nota: El centro se reserva el derecho de anular la matrícula en caso de que se compruebe que los datos anteriores no se corresponden a 
+    la realidad o por la situación académica. Anexar el modelo de baja del CES donde se estudió.
+</p>
+<br>
+{% endblock content %}
