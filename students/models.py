@@ -118,8 +118,8 @@ class ExamLocation(models.Model):
 class Claim(models.Model):  #Reclamaciones
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, verbose_name='estudiante')
-    new_grade = models.IntegerField(verbose_name='nueva nota', default=0)
-
+    new_grade = models.IntegerField('nueva nota', default=0)
+    
     def __str__(self):
         return str(self.student) + " " + str(self.new_grade)
 
@@ -128,12 +128,12 @@ class Claim(models.Model):  #Reclamaciones
         verbose_name_plural = _("Reclamaciones")
 
 
-class ApprovedStudent(models.Model):  # pasar el nombre a ingles
+class ApprovedStudent(models.Model): 
     student = models.ForeignKey(
-        Student, on_delete=models.CASCADE, verbose_name='estudiante')
+        Student, models.CASCADE, verbose_name='estudiante')
     career = models.ForeignKey(
-        Career, on_delete=models.CASCADE, verbose_name='carrera')
-
+        Career, models.CASCADE, verbose_name='carrera')
+    
     def __str__(self):
         return str(self.student) + " " + str(self.career)
 
@@ -169,8 +169,7 @@ class Turn(models.Model):
     date = models.DateField('día')
     time = models.TimeField('time')
     secretary = models.IntegerField(_("secretaria"))
-    assign = models.BooleanField(_("asignado"))
-
+    
     def __str__(self):
         return str(self.date) + ' a las ' + str(self.time) + '      Asignado: ' + str(self.assign)
 
@@ -193,13 +192,14 @@ class MakeTurns(models.Model):
         verbose_name = _('Turno Horario')
         verbose_name_plural = _('Turnos Horarios')
 
-# class AssignTurn(models.Model):
-#     turn = models.ForeignKey(Turn, on_delete=models.CASCADE, verbose_name='turno')
-#     secretary = models.ForeignKey(Secretary, on_delete=models.CASCADE, verbose_name='secretaria')
-
-#     def __str__(self):
-#         return 'Secretaria: ' + str(self.secretary) + ' el ' + str(self.turn) 
+class AssignTurn(models.Model):
+    turn = models.ForeignKey(Turn, on_delete=models.CASCADE, verbose_name='turno')
+    secretary = models.ForeignKey(Secretary, on_delete=models.CASCADE, verbose_name='secretaria')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name='estudiante')
     
-#     class Meta:
-#         verbose_name = _('Turno Asignado')
-#         verbose_name_plural = _('Turnos Asignados')
+    def __str__(self):
+        return 'Secretaria: ' + str(self.secretary) + ' el ' + str(self.turn)  + ' a ' + str(self.student)
+    
+    class Meta:
+        verbose_name = _('Turno Asignado')
+        verbose_name_plural = _('Turnos Asignados')

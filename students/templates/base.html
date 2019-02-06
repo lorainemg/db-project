@@ -1,0 +1,62 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <title>{% block title %}{% endblock title %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <link href="{% static 'css/material-kit.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+  <script src="{% static 'js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src=" {% static 'js/material-kit.min.js' %}"></script>
+  <script src=" {% static 'js/material-kit.min.js.map' %}"></script>
+  <script src=" {% static 'js/core/bootstrap-material-design.min.js' %}"></script>
+  {% block css_header %}{% endblock css_header %}
+  {% block js_header %}{% endblock js_header %}
+</head>
+
+<body>
+  {% block header %}
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url(&quot;../static/img/book.jpg&quot;); transform: translate3d(0px, 0px, 0px);">
+  </div>
+  {% endblock header %}
+
+  {% block nav %}
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Ministerio de Educación Superior</a>
+      </div>
+
+      <div class="collapse navbar-collapse justify-content-md-center">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/home/">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/declaration/">Planilla</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/notas/">Notas</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endblock nav %}
+  <div class="main main-raised">
+    <br>
+    <div class="container">
+      {% block content %}
+      {% endblock content %}
+      {% block footer %}
+      {% endblock footer %}
+    </div>
+  </div>
+  {% block js_footer %}{% endblock js_footer %}
+</body>
+
+</html>

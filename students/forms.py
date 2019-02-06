@@ -1,16 +1,12 @@
 from django import forms 
 from students.models import Student
 
-class name(forms.Form): 
-    q = forms.DecimalField() 
-
-    # def clean_q(self):
-    # 	q = self.cleaned_data['q']
-    # 	if not q[0].isupper():
-    # 		raise forms.ValidationError("¡criterio de busqueda muy pequeno!") 
-    # 	return q
-
+# TODO: Coger el campo las carreras.
 class Form(forms.Form): 
+    """
+    Clase usada para validar los datos del formulario llenada
+    para el ingreso de los estudiantes.
+    """
     ci = forms.DecimalField()
     tel = forms.DecimalField(required=False)
     nombre = forms.CharField()
