@@ -6,7 +6,7 @@ class Student(models.Model):
     CI = models.BigIntegerField(default=0, primary_key=True)
     first_name = models.CharField('nombre', max_length=30)
     last_name = models.CharField('apellidos', max_length=40)
-    address = models.CharField('dirección', max_length=50)
+    address = models.CharField('dirección', max_length=200)
     city = models.CharField('ciudad', max_length=20)
     email = models.EmailField('correo', blank=True, null=True)
     sex = models.CharField(
@@ -14,7 +14,43 @@ class Student(models.Model):
         max_length=2,
         choices=(('F', 'Femenino'), ('M', 'Masculino')),
         default="F")
-    telephone_number = models.IntegerField('teléfono', default=0)
+    tel = models.IntegerField('teléfono', default=0, blank=True) 
+    town = models.CharField('municipio', max_length=50, default='Playa')
+    color = models.CharField(
+        'color de piel',
+        max_length=1,
+        choices=(('1', 'Negro'), ('2', 'Blanco'), ('3', 'Mestizo')),
+        default='2'
+    )
+    procedence = models.CharField(
+        'procedencia escolar',
+        max_length=20,
+        choices=(('1', 'IPU'), ('2', 'Politecnico'), ('3', 'FOC'), ('4', 'Otro')),
+        default='1'
+    )
+    ocupation = models.CharField(
+        'ocupacion',
+        max_length=20,
+        choices=(('1', 'Dirigente'),
+                ('2', 'Profesional'),
+                ('3', 'Tecnico'),
+                ('4', 'Administrativo'),
+                ('5', 'Trabajador de los servicios'),
+                ('6', 'Obrero'),
+                ('7', 'Campesino'),
+                ('8', 'Ama de casa'),
+                ('9', 'Otra situación')),
+        default='3'
+    )
+    workSec = models.CharField(
+        'sector laboral',
+        max_length=20,
+        choices=(('1', 'Estatal'), ('2', 'Privado'), ('3', 'Cooperativo'), 
+                ('4', 'Mixto o Extranjero')),
+        default='1'
+    )
+    vinculation = models.BooleanField('vinculación con la carrera', default=True)
+    #TODO: Faltan carreras
 
     def __str__(self):
         return self.first_name + " " + self.last_name
@@ -171,7 +207,7 @@ class Turn(models.Model):
     secretary = models.IntegerField(_("secretaria"))
     
     def __str__(self):
-        return str(self.date) + ' a las ' + str(self.time) + '      Asignado: ' + str(self.assign)
+        return str(self.date) + ' a las ' + str(self.time)
 
     class Meta:
         verbose_name = _('Turno')

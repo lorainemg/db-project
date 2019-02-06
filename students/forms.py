@@ -7,14 +7,14 @@ class Form(forms.Form):
     Clase usada para validar los datos del formulario llenada
     para el ingreso de los estudiantes.
     """
-    ci = forms.DecimalField()
-    tel = forms.DecimalField(required=False)
+    ci = forms.IntegerField()
+    tel = forms.IntegerField(required=False)
     nombre = forms.CharField()
     pApellido = forms.CharField()
     sApellido = forms.CharField()
     email = forms.EmailField(required=False)
     calle = forms.CharField()
-    num = forms.DecimalField()
+    num = forms.IntegerField()
     apto = forms.CharField()
     esc = forms.CharField()
     entre = forms.CharField()
@@ -42,7 +42,7 @@ class Form(forms.Form):
     ('3', 'FOC'),
     ('4', 'Otro'),
     )
-    procedencia = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=places)
+    procedencia = forms.ChoiceField(widget=forms.RadioSelect, choices=places)
     ocupation = (
     ('1', 'Dirigente'),
     ('2', 'Profesional'),
@@ -55,9 +55,9 @@ class Form(forms.Form):
     ('9', 'Otra situación'),
     )
     ocupacionRadio = forms.ChoiceField(widget=forms.RadioSelect, choices=ocupation)
-    OtroV = forms.CharField(required=False)
+    otroV = forms.CharField(required=False)
     vinculo = (
-    ('1', 'Sí'),
+    ('1', 'Si'),
     ('2', 'No'),
     )
     vinculaRadio = forms.ChoiceField(widget=forms.RadioSelect, choices=vinculo)
