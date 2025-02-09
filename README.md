@@ -1,14 +1,25 @@
 # Automation of the enrollment process in courses
 
-Due to the approval of new changes in the study modalities of Course by Encounters (CPE) and Distance Education (EaD), the University of Havana (UH) has received applicants in these modalities in recent years. The number of applicants has exceeded 3,000 figures in all the time these changes have been implemented.
+This project is a web-based application designed to automate the enrollment process for the University of Havana's Distance Education (EaD) and Course by Encounters (CPE) programs. The system streamlines applicant registration and provides administrative tools for managing entrance exams and generating specific reports.
 
-Therefore, the process of managing enrollment and managing entrance exams becomes complex due to the number of applicants who apply. In addition, the number of personnel entering the UH during registration and exams is high and poses a problem for the safety and performance of center workers.
+## Introduction
 
-Due to the aforementioned, it is necessary to design, implement and deploy a system that provides improvements to the management of the applicants' registration, and provides specific reports about this management.
+With the recent changes in the study modalities at the University of Havana, there has been a significant increase in applicants for the EaD and CPE programs, surpassing 3,000 in recent years. Managing enrollment and entrance exams manually has become complex and poses challenges for staff performance and security. This system aims to:
+
+- Simplify the applicant registration process.
+- Manage entrance exams efficiently.
+- Generate specific reports to aid administrative decision-making.
+
+- ## Features
+
+- **Applicant Registration**: Allows prospective students to register for courses online.
+- **Entrance Exam Management**: Facilitates scheduling and administration of entrance exams.
+- **Reporting**: Generates detailed reports on applicant data and enrollment statistics.
+- **User Authentication**: Secure login for administrators to manage the system.
 
 ## The System
 
-The system, in its conception, offers the possibility of being able to create a registration request, which will collect the data of the applicants, including the approval of the Affidavit. This form can be filled out by the applicant from outside the center, prepared from the center itself or by authorized personnel at the UH, in the presence of the applicant.
+The system offers the possibility of being able to create a registration request, which will collect the data of the applicants, including the approval of the Affidavit. This form can be filled out by the applicant from outside the center, prepared from the center itself or by authorized personnel at the UH, in the presence of the applicant.
 
 The preparation of this registration has a period that must be established by those responsible for this activity and taking into account the date on which each of the applications is made, it will serve to establish dates automatically. Applicants will go to the center to formalize their registration, choosing between the scheduled shifts or using the one assigned by the system.
 
@@ -17,56 +28,45 @@ Once the exams have been graded, the designated secretary must enter the grades 
 
 At the end of the process, the system will also automatically generate three documents, a list that for each applicant will have the degree assigned. The second document will contain the closing note of the races whose places have been exhausted and the last document will have a list with information on all the remaining races.
 
-## Features
+## Technologies Used
 
-1. Manage races
-   1. Manage CPE and EaD careers
-      1. Add career CPE and EaD
-      2. Modify career CPE and EaD
-      3. Show career CPE and EaD
-      4. Eliminate CPE and EaD career
-2. Manage test centers
-   1. Add test center
-   2. Modify test center
-   3. Show test center
-   4. Delete test center
-3. Manage classrooms dedicated to the exam
-   1. Add classroom
-   2. Modify classroom
-   3. Show classroom
-   4. Delete classroom
-4. Manage applicant
-   1. Add Applicant
-   2. Modify Applicant
-   3. Show applicant
-   4. Delete Applicant
-5. Manage registration form
-   1. Add registration form
-   2. Modify registration form
-   3. Show registration form
-   4. Generate shifts
-6. Manage examination minutes
-   1. Add exam report
-   2. Show exam report
-7. Manage ratings
-   1. Add rating
-   2. Modify rating
-   3. show rating
-   4. Delete rating
-   5. Generate minutes of publication of notes
-8. Qualifications
-   1. post notes
-   2. Post race closing
-   3. Generate and publish Ladder
-9. Granting
-   1. Post Grant
-   2. Generate granting list
-10. Re-offer
-    1. Post leftover races
-11. Open registration
-12. Close enrollment
-13. Generate historical data
-    1. Transfer data from current database to historical database
-    2. Clean current database
-14. Historical data reports
-15. Send notifications
+- **Backend**: Python with Django framework
+- **Database**: SQLite3
+- **Frontend**: HTML, CSS, JavaScript
+- **Version Control**: Git
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. **Clone the Repository**:
+
+```bash
+git clone https://github.com/lorainemg/db-project.git
+cd db-project
+```
+2. Create a Virtual Environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows, use venv\Scripts\activate
+```
+3. Install Dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Apply Migrations:
+```bash
+python manage.py migrate
+```
+5. Create a Superuser:
+```bash
+python manage.py createsuperuser
+```
+6. Run the Development Server:
+```bash
+python manage.py runserver
+```
+
+## Usage
+- Applicant Registration: Applicants can sign up and apply for courses through the public interface.
+- Administrator Access: Admins can log in to manage applicants, schedule exams, and generate reports.
